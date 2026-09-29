@@ -6,7 +6,7 @@ import { ROUTES, ROLES } from '../../utils/constants';
 import { Bell, LogOut, Menu, User, ShieldCheck, BookOpen, GraduationCap, ChevronDown } from 'lucide-react';
 
 export const Navbar = ({ onToggleSidebar }) => {
-  const { user, isAuthenticated, logout, role, demoLogin } = useAuth();
+  const { user, isAuthenticated, logout, role } = useAuth();
   const { unreadNotifications, markAllNotificationsAsRead } = useUser();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [notifOpen, setNotifOpen] = useState(false);
@@ -95,34 +95,6 @@ export const Navbar = ({ onToggleSidebar }) => {
           <div className="flex items-center gap-3">
             {isAuthenticated ? (
               <>
-                {/* Demo Switcher Quick Buttons */}
-                <div className="hidden xl:flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl text-xs">
-                  <span className="text-slate-400 font-medium px-2">Switch Demo:</span>
-                  <button
-                    onClick={() => demoLogin(ROLES.ADMIN)}
-                    className={`px-2 py-1 rounded-lg transition font-medium ${
-                      role === ROLES.ADMIN ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-600 hover:bg-slate-200'
-                    }`}
-                  >
-                    Admin
-                  </button>
-                  <button
-                    onClick={() => demoLogin(ROLES.FACULTY)}
-                    className={`px-2 py-1 rounded-lg transition font-medium ${
-                      role === ROLES.FACULTY ? 'bg-amber-600 text-white shadow-sm' : 'text-slate-600 hover:bg-slate-200'
-                    }`}
-                  >
-                    Faculty
-                  </button>
-                  <button
-                    onClick={() => demoLogin(ROLES.STUDENT)}
-                    className={`px-2 py-1 rounded-lg transition font-medium ${
-                      role === ROLES.STUDENT ? 'bg-emerald-600 text-white shadow-sm' : 'text-slate-600 hover:bg-slate-200'
-                    }`}
-                  >
-                    Student
-                  </button>
-                </div>
 
                 {/* Notifications Dropdown */}
                 <div className="relative">
