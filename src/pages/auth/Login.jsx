@@ -3,7 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { ROLES, ROUTES } from '../../utils/constants';
 import { validateEmail } from '../../utils/validation';
-import { ShieldCheck, BookOpen, GraduationCap, Lock, Mail, ArrowRight, AlertCircle } from 'lucide-react';
+import { Lock, Mail, ArrowRight, AlertCircle } from 'lucide-react';
 
 export const Login = () => {
   const [email, setEmail] = useState('');
@@ -11,7 +11,7 @@ export const Login = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const { login, demoLogin } = useAuth();
+  const { login } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -47,19 +47,6 @@ export const Login = () => {
       handleRedirect(user.role);
     } catch (err) {
       setError(err.message || 'Login failed. Please verify credentials.');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleDemoClick = async (role) => {
-    setError('');
-    setLoading(true);
-    try {
-      const user = await demoLogin(role);
-      handleRedirect(user.role);
-    } catch (err) {
-      setError(err.message || 'Demo login failed');
     } finally {
       setLoading(false);
     }
@@ -154,39 +141,6 @@ export const Login = () => {
               {loading ? 'Authenticating...' : 'Sign In'} <ArrowRight className="w-4 h-4" />
             </button>
           </form>
-
-          {/* Quick 1-Click Demo Login options for testing */}
-          <div className="mt-6 pt-6 border-t border-slate-200">
-            <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block text-center mb-3">
-              Fast Evaluator Demo Logins
-            </span>
-            <div className="grid grid-cols-3 gap-2">
-              <button
-                type="button"
-                onClick={() => handleDemoClick(ROLES.ADMIN)}
-                className="flex flex-col items-center justify-center p-2.5 rounded-xl border border-indigo-200 bg-indigo-50/50 hover:bg-indigo-100 text-indigo-800 transition text-xs font-medium"
-              >
-                <ShieldCheck className="w-4 h-4 mb-1 text-indigo-600" />
-                <span>Admin</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => handleDemoClick(ROLES.FACULTY)}
-                className="flex flex-col items-center justify-center p-2.5 rounded-xl border border-amber-200 bg-amber-50/50 hover:bg-amber-100 text-amber-800 transition text-xs font-medium"
-              >
-                <BookOpen className="w-4 h-4 mb-1 text-amber-600" />
-                <span>Faculty</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => handleDemoClick(ROLES.STUDENT)}
-                className="flex flex-col items-center justify-center p-2.5 rounded-xl border border-emerald-200 bg-emerald-50/50 hover:bg-emerald-100 text-emerald-800 transition text-xs font-medium"
-              >
-                <GraduationCap className="w-4 h-4 mb-1 text-emerald-600" />
-                <span>Student</span>
-              </button>
-            </div>
-          </div>
 
           <div className="mt-6 text-center">
             <p className="text-xs text-slate-500">

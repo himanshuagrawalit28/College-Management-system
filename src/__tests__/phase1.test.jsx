@@ -117,7 +117,7 @@ describe('Phase 1 Verification Test Suite', () => {
 
     expect(screen.getByPlaceholderText(/e\.g\. admin@apexcollege\.edu/i)).toBeDefined();
     expect(screen.getByPlaceholderText(/••••••••/i)).toBeDefined();
-    expect(screen.getByText(/Fast Evaluator Demo Logins/i)).toBeDefined();
+    expect(screen.getByRole('button', { name: /Sign In/i })).toBeDefined();
   });
 
   // TC-06: Registration Component Tabs
