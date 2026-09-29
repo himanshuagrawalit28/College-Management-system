@@ -1,0 +1,138 @@
+export const ROLES = {
+  ADMIN: 'admin',
+  FACULTY: 'faculty',
+  STUDENT: 'student',
+};
+
+export const ROUTES = {
+  HOME: '/',
+  ABOUT: '/about',
+  CONTACT: '/contact',
+  LOGIN: '/login',
+  REGISTER: '/register',
+  FORGOT_PASSWORD: '/forgot-password',
+
+  ADMIN_DASHBOARD: '/admin/dashboard',
+  ADMIN_STUDENTS: '/admin/students',
+  ADMIN_FACULTY: '/admin/faculty',
+  ADMIN_COURSES: '/admin/courses',
+  ADMIN_FEES: '/admin/fees',
+  ADMIN_NOTICES: '/admin/notices',
+  ADMIN_EVENTS: '/admin/events',
+
+  FACULTY_DASHBOARD: '/faculty/dashboard',
+  FACULTY_PROFILE: '/faculty/profile',
+  FACULTY_ATTENDANCE: '/faculty/attendance',
+  FACULTY_RESULTS: '/faculty/results',
+  FACULTY_TIMETABLE: '/faculty/timetable',
+
+  STUDENT_DASHBOARD: '/student/dashboard',
+  STUDENT_PROFILE: '/student/profile',
+  STUDENT_ATTENDANCE: '/student/attendance',
+  STUDENT_RESULTS: '/student/results',
+  STUDENT_FEES: '/student/fees',
+  STUDENT_TIMETABLE: '/student/timetable',
+  STUDENT_NOTICES: '/student/notices',
+};
+
+export const INITIAL_USERS = [
+  {
+    id: 'usr_admin_1',
+    name: 'Dr. Robert Vance',
+    email: 'admin@apexcollege.edu',
+    role: ROLES.ADMIN,
+    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
+    department: 'Administration',
+    designation: 'Principal Dean',
+    phone: '+1 (555) 019-2834',
+  },
+  {
+    id: 'usr_faculty_1',
+    name: 'Prof. Sarah Jenkins',
+    email: 'faculty@apexcollege.edu',
+    role: ROLES.FACULTY,
+    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80',
+    department: 'Computer Science & Engineering',
+    designation: 'Associate Professor',
+    employeeId: 'FAC-2023-042',
+    phone: '+1 (555) 839-1123',
+    subjectsAssigned: ['CS301 - Data Structures', 'CS402 - Cloud Computing'],
+  },
+  {
+    id: 'usr_student_1',
+    name: 'Alex Rivera',
+    email: 'student@apexcollege.edu',
+    role: ROLES.STUDENT,
+    avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&auto=format&fit=crop&q=80',
+    rollNumber: 'CS2023-018',
+    department: 'Computer Science',
+    semester: '6th Semester',
+    batchYear: '2023-2027',
+    cgpa: 3.84,
+    attendanceRate: 92,
+    phone: '+1 (555) 438-9902',
+  },
+];
+
+export const INITIAL_NOTICES = [
+  {
+    id: 'not_1',
+    title: 'Mid-Term Examinations Schedule Announced',
+    category: 'Examination',
+    date: '2026-10-05',
+    author: 'Examination Cell',
+    pinned: true,
+    content: 'All undergraduate students are informed that the Autumn mid-term theory examinations will commence from Oct 18, 2026. Detailed schedule uploaded on student portal.',
+  },
+  {
+    id: 'not_2',
+    title: 'Annual Hackathon "HackApex 2026" Registrations Open',
+    category: 'Events',
+    date: '2026-10-02',
+    author: 'Department of Computer Science',
+    pinned: true,
+    content: 'Compete with 50+ college teams for prizes worth $15,000. Registration deadline is October 15th.',
+  },
+  {
+    id: 'not_3',
+    title: 'Tuition Fee Payment Deadline for Autumn Semester',
+    category: 'Finance',
+    date: '2026-09-28',
+    author: 'Finance Department',
+    pinned: false,
+    content: 'Students who have remaining semester balances are requested to complete dues by October 10th to avoid late fee penalties.',
+  },
+];
+
+export const INITIAL_EVENTS = [
+  {
+    id: 'evt_1',
+    title: 'Annual Tech Symposium & Robotics Expo',
+    date: '2026-10-22',
+    time: '09:30 AM - 05:00 PM',
+    venue: 'Main Auditorium & Innovation Lab',
+    category: 'Academic',
+    organizer: 'Robotics Club & IEEE Student Branch',
+    description: 'Keynote lectures from industry leaders, competitive bot-wars, and project exhibits.',
+  },
+  {
+    id: 'evt_2',
+    title: 'Inter-College Football Tournament Finals',
+    date: '2026-10-25',
+    time: '03:00 PM - 06:00 PM',
+    venue: 'College Sports Complex',
+    category: 'Sports',
+    organizer: 'Athletics Committee',
+    description: 'Cheer for the Apex Titans as they compete in the championship final against Northfield.',
+  },
+  {
+    id: 'evt_3',
+    title: 'AI & Machine Learning Career Bootcamp',
+    date: '2026-11-04',
+    time: '10:00 AM - 04:00 PM',
+    venue: 'Seminar Hall 3',
+    category: 'Career',
+    organizer: 'Training & Placement Cell',
+    description: 'Hands-on resume review, mock technical interviews, and portfolio showcase.',
+  },
+];
